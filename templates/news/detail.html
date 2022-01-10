@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+{% for object in newsobject %}
+
+	<h1>{{ object.heading }}</h1>
+	<li>{{ object.body }}</li>
+	<i>{{ object.source }}, {{ object.date }}</i>
+{% endfor %}
+</ul>
+{% endblock %}
