@@ -1,0 +1,46 @@
+
+
+i {
+	color: blueviolet;
+}
+h1 {
+	color: red;
+}
+.container{
+	width: 100vw;
+	height: 100vh;
+	
+
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-template-rows: 100px 1000px 100px;
+	gap:  10px;
+	padding: 20px;
+	box-sizing: border-box;
+
+}
+
+.header {
+	grid-row: 1;
+	grid-column: 1;
+	color: darkblue;
+	font-size: 50px;
+	background-color: lightskyblue;
+}
+.bodycontents {
+	grid-column: 1;
+	grid-row: 2;
+	background-color: ghostwhite;
+}
+.linklists {
+	font-size: 15px;
+	grid-row: 2;
+	grid-column: 2;
+	background-color: lightslategray;
+	color: white;
+}
+.user_members{
+	grid-column: 1;
+	grid-row: 3;
+	background-color: lightskyblue;
+}
