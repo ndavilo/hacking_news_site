@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+{% for post in object_list %}
+
+  <h2><a href="{% url 'article-detail' post.pk %}">{{ post.heading }}</a></h2>
+  <i>{{ post.source }}, {{ post.date }}</i>
+  <button><a href="{% url 'news_confirm_delete' post.pk %}">Delete News</a></button>
+  <br/><br/>
+  <h2>Comments...</h2>
+  {% if not post.comments.all %}
+    No comments Yet...<button><a href="#">
+    Add One</a></button>
+  {% else %}
+    <button><a href=""> Add Comment</a></button>
+    <br/>
+    <br/>
+    {% for comment in post.comments.all %}
+      <strong>
+        <i> {{ comment.name }} </i>
+        {{ comment.date }}
+      </strong>
+      <br/>
+      {{ comment.body }}
+    {% endfor %}
+  {% endif %}
+
+{% endfor%}
+</ul>
+{% endblock %}

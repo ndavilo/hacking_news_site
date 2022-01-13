@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<ul>
+{% for object in newsobject %}
+
+	<h2>{{ object.heading }}</h2>
+	<li>{{ object.body }}</li>
+	<i>{{ object.source }}, {{ object.date }}</i>
+	<br></br>
+	<h2>Comments...</h2>
+	{% if not object.comments.all %}
+		No comments Yet...<a href="#">
+		Add One</a>
+	{% else %}
+		<a href=""> Add Comment</a>
+		<br/>
+		<br/>
+		{% for comment in object.comments.all %}
+			<strong>
+				<i> {{ comment.name }} </i>
+				{{ comment.date }}
+			</strong>
+			<br/>
+			{{ comment.body }}
+		{% endfor %}
+	{% endif %}
+
+{% endfor %}
+
+</ul>
+{% endblock %}

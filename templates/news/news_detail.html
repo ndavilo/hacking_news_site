@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ news.heading }}</h2>
+  <li>{{ news.body }}</li>
+  <i>{{ news.source }}, {{ news.date }}</i>
+  <br></br>
+
+   {% if not news.comments.all %}
+    No comments Yet...<button><a href="#">
+    Add One</a></button>
+  {% else %}
+    <button><a href=""> Add Comment</a></button>
+    <br/>
+    <br/>
+    {% for comment in news.comments.all %}
+      <strong>
+        <i> {{ comment.name }} </i>
+        {{ comment.date }}
+      </strong>
+      <br/>
+      {{ comment.body }}
+    {% endfor %}
+  {% endif %}
+
+  <br></br>
+  <button><a href="{% url 'home' %}">BACK</a></button>
+
+
+{% endblock %}
